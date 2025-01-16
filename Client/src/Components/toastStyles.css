@@ -1,0 +1,7 @@
+:root{
+    --toastify-icon-color-success:#402c13;
+}
+
+.Toastify__progress-bar--success {
+    background-color: #402c13;
+}

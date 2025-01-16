@@ -1,0 +1,252 @@
+.admin-login-container {
+    height: auto;
+    padding: 30px 0px;
+    padding-bottom: 40px;
+}
+
+
+
+/* General Page Styling */
+.admin-home {
+    text-align: center;
+    padding: 50px 0px;
+    padding-bottom: 100px;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+/* Title */
+.admin-home h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Card Container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: auto;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+/* Individual Card */
+.admin-card {
+    background: linear-gradient(135deg, rgb(72, 49, 22), rgb(141, 114, 81));
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.admin-card h2 {
+    font-size: 1.5rem;
+
+}
+
+.admin-card p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 800px) {
+    .admin-home h1 {
+        font-size: 1.8rem;
+    }
+
+    .admin-card {
+        height: 25vw;
+    }
+
+    .admin-card h2 {
+        font-size: 1.2rem;
+    }
+
+    .admin-card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .admin-home h1 {
+        font-size: 1.5rem;
+    }
+
+    .admin-card h2 {
+        font-size: 1rem;
+    }
+
+    .admin-card p {
+        font-size: 0.7rem;
+    }
+}
+
+
+
+/* ----------------- MENU -----------------*/
+.adminmenu {
+    padding-bottom: 50px;
+}
+
+.editing {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-buttons {
+    color: rgb(101, 69, 31);
+}
+
+.edit-buttons i {
+    scale: 1.2;
+}
+
+.edit-buttons:hover i {
+    color: black;
+    scale: 1.4;
+}
+
+/* Form Container */
+.cookie-form {
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 30vw;
+    margin: auto;
+    margin-bottom: 100px;
+    transition: all 0.3s ease;
+}
+
+.cookie-form h3 {
+    text-align: center;
+    color: rgb(101, 69, 31);
+    font-size: 2.1vw;
+    font-size: min(30px);
+}
+
+/* Form Group */
+.cookie-form .form-group {
+    margin-bottom: 15px;
+}
+
+/* Label Styling */
+.cookie-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input Fields */
+.cookie-form input[type="text"],
+.cookie-form input[type="number"],
+.cookie-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Placeholder Styling */
+.cookie-form input::placeholder {
+    color: #999;
+}
+
+/* Submit Button */
+.cookie-form .loginbtn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f59342;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Submit Button Hover Effect */
+.cookie-form .loginbtn:hover {
+    background-color: #d97a2d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cookie-form {
+        width: 90vw;
+        padding: 20px;
+    }
+
+    .cookie-form h3 {
+        font-size: 1.5rem;
+    }
+
+    .cookie-form input[type="text"],
+    .cookie-form input[type="number"],
+    .cookie-form input[type="file"] {
+        font-size: 0.95rem;
+    }
+
+    .cookie-form .loginbtn {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-form {
+        width: 95vw;
+        padding: 15px;
+    }
+
+    .cookie-form h3 {
+        font-size: 1.2rem;
+    }
+
+    .cookie-form input[type="text"],
+    .cookie-form input[type="number"],
+    .cookie-form input[type="file"] {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .cookie-form .loginbtn {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+}
+
+
+/* confirm delete  */
+body .react-confirm-alert-overlay {
+    background: rgba(0, 0, 0, 0.504) !important;
+    /* Add !important to enforce your style */
+}
+
+.react-confirm-alert{
+    transition: 0.1s ease-in-out;
+}

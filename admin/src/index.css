@@ -1,0 +1,727 @@
+body{
+  background-color: rgba(248, 237, 222)
+}
+
+
+.cursive {
+  text-align: center;
+  font-size: 2.8rem;
+  /* color: rgb(118, 88, 39); */
+  color: rgb(101, 69, 31);
+  /* background-color: rgba(118, 88, 39, 0.68); */
+  padding: 5px 0px;
+  margin: 40px 0px;
+  margin-top: 3rem;
+}
+
+.cursive span {
+  font-family: 'Franklin Gothic Medium';
+}
+
+@media screen and (max-width: 500px) {
+  .cursive {
+    font-size: 8vw;
+  }
+}
+
+
+/* ------------------------------------ COFFEE  ---------------------------------- */
+.coffee {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 2.5vw;
+  padding: 2vh 2vw;
+  padding-bottom: 180px;
+}
+
+
+.CoffeeItems {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: #d3d8d4;
+  padding: 7%;
+  /* box-shadow: 3px 3px 6px rgba(122, 122, 122, 0.655); */
+}
+
+.CoffeeItems>h3 {
+  margin-bottom: 10px;
+}
+
+.price {
+  height: auto;
+}
+
+.CoffeeItems:hover {
+  box-shadow: 5px 5px 15px 2px rgba(51, 51, 51, 0.765);
+}
+
+.pic {
+  display: inline-block;
+  margin: auto;
+  /* margin-top: 5%; */
+  height: 11%;
+  width: 11%;
+  background-color: rgb(118, 88, 39);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pic img {
+  border-radius: 50%;
+  height: 10vw;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* .pic:hover img {
+  transform: scale(1.1);
+} */
+
+.coffee h3 {
+
+  text-align: center;
+  color: rgb(101, 69, 31);
+  font-size: 2.1vw;
+  font-size: min(30px);
+}
+
+.CoffeeItems p {
+  text-align: center;
+  font-size: 1.5vw;
+  font-size: min(20px);
+  font-weight: bold;
+  /* margin-right: 20px; */
+  color: rgb(101, 69, 31);
+  margin: 0px;
+}
+
+@media (min-width: 1200px) {
+  .coffee {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* For screens between 992px and 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .coffee {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* For screens between 768px and 991px */
+@media (min-width: 400px) and (max-width: 991px) {
+  .coffee {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-list a {
+    font-size: 18px;
+  }
+}
+
+@media(max-width:500px) {
+  .CoffeeItems>h3 {
+    font-size: large;
+  }
+
+  .CoffeeItems>p {
+    font-size: medium;
+  }
+
+  .pic>img {
+    height: 85px;
+
+  }
+
+  .menu-list a {
+    font-size: 15px;
+  }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 400px) {
+  .coffee {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ------------------------------------ CAKE ----------------------------- */
+
+.cakemenu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  /* gap: 3rem ; */
+  gap: 3.8vw;
+  padding: 0rem 2em;
+}
+
+.Cakes {
+  padding-bottom: 180px;
+}
+
+.half-capsule {
+  margin-bottom: 18px;
+  background-color: #d3d8d4;
+  /* background-color: rgb(211, 225, 237); */
+  /* Set your desired background color */
+  border-radius: 30vw 30vw 4vw 4vw;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-height: 58vh;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 3px 3px 10px rgba(122, 122, 122, 0.3);
+}
+
+.half-capsule:hover {
+  box-shadow: 6px 6px 18px 2px rgba(51, 51, 51, 0.765);
+}
+
+.cake-img {
+  display: flex;
+  flex-direction: column;
+  /* border: yellow 2px solid; */
+  border-radius: 20%;
+  text-align: center;
+  width: 100%;
+  margin-top: 0;
+  height: 100%;
+
+}
+
+.cake-img img {
+  background-color: #aaaeb9;
+  border-radius: 30vw 30vw 0 0;
+  height: 100%;
+  max-height: 30vh;
+  width: auto;
+  padding-top: 13%;
+}
+
+.cookie-img {
+  display: flex;
+  flex-direction: column;
+  /* border: yellow 2px solid; */
+  border-radius: 20%;
+  text-align: center;
+  width: 100%;
+  margin-top: 0;
+  height: 100%;
+
+}
+
+.cookie-img img {
+  background-color: #aaaeb9;
+  border-radius: 30vw 30vw 0 0;
+  height: 100%;
+  max-height: 30vh;
+  padding: 5% 10%;
+  width: auto;
+  padding-top: 13%;
+}
+
+
+
+.price>h3 {
+  /* text-transform: uppercase; */
+  font-size: 5vw;
+  font-size: min(26px);
+  /* color: #fdfdfd; */
+  text-align: center;
+  color: rgb(101, 69, 31);
+  margin-top: 10%;
+  margin-block-end: 0px;
+}
+
+.price>h2 {
+  font-size: 1vw;
+  font-size: min(18px);
+  color: rgb(101, 69, 31);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.out-of-stock {
+  color: red;
+}
+
+.in-stock {
+  color: green;
+}
+
+@media (min-width: 1200px) {
+  .coffee {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* For screens between 992px and 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .cakemenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* For screens between 768px and 991px */
+@media (min-width: 400px) and (max-width: 991px) {
+  .cakemenu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:500px) {
+  .price>h3 {
+    font-size: medium;
+  }
+
+  .add-to-cart {
+    padding: 7px 15px;
+    font-size: medium;
+  }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 400px) {
+  .cakemenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+.add-to-cart {
+  font-size: 1vw;
+  font-size: min(1em);
+  /* display: block; */
+  margin: 0px auto;
+  padding: 10px 20px;
+  background-color: #2c2f44;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-decoration: none;
+}
+
+.add-to-cart:hover {
+  background-color: #07080b;
+  /* Darker blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+  /* Slight lift effect */
+  /* Stronger shadow on hover */
+  /* transform: scale(1.1); */
+
+}
+
+.add-to-cart:active {
+  transform: translateY(0);
+  /* Remove lift effect on click */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  /* Reduced shadow on click */
+}
+
+
+
+/* ----------------------------------- LOGIN -------------------------------------- */
+
+
+
+.login-page {
+  background: radial-gradient(#fff, rgba(101, 69, 31, 0.295));
+  height: 100vh;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.677);
+  width: 25vw;
+  height: 30vw;
+  text-align: center;
+  padding: 20px 0;
+  margin: auto;
+  /* box-shadow: 8px 8px 20px 2px rgba(51, 51, 51, 0.865); */
+  box-shadow: 5px 5px 15px 2px rgba(122, 122, 122, 0.655);
+  animation: transitionIn 0.75s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.login-btn {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.loginbtn {
+  padding: 10px 20px;
+  /* Adjusted padding for better spacing */
+  width: 100%;
+  height: 45px;
+  /* Slightly taller for a more modern look */
+  font-size: 1rem;
+  /* Keep the font size readable */
+  font-weight: bold;
+  /* Make the text more prominent */
+  color: #ffffff;
+  /* White text for better contrast */
+  background: linear-gradient(135deg, #78664e, #65451F);
+  /* Gradient background for visual interest */
+  border: none;
+  /* Remove the default border */
+  border-radius: 8px;
+  /* Rounded corners for a smoother look */
+  cursor: pointer;
+  /* Change cursor to pointer on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow for depth */
+  transition: transform 0.2s ease;
+  /* Smooth transitions */
+}
+
+.loginbtn:hover {
+  background: linear-gradient(135deg, #65451F, #78664e);
+  /* Invert gradient on hover */
+  transform: translateY(-2px);
+  /* Slight lift on hover */
+}
+
+.loginbtn:active {
+  transform: translateY(0);
+  /* Reset lift on click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Slightly reduced shadow */
+}
+
+.login-container form {
+  width: 100%;
+  padding: 0 2vw;
+  transition: transform 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+  gap: 30px;
+  /* width: 25vw; */
+  box-sizing: border-box;
+}
+
+
+
+
+form input,
+form select {
+  width: 100%;
+  height: 45px;
+  /* Increased height for better usability */
+  border: 1px solid #ccc;
+  /* Neutral border color */
+  box-sizing: border-box;
+  padding: 0 20px;
+  /* Comfortable padding */
+  font-size: 1rem;
+  /* Larger font size for readability */
+  border-radius: 10px;
+  /* Smoother rounded edges */
+  /* Subtle text color */
+  background: rgba(255, 255, 255, 0.9);
+  /* Slightly transparent background */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  /* Add a subtle shadow for depth */
+  transition: all 0.3s ease;
+  /* Smooth transition for hover effects */
+}
+
+form input::placeholder {
+  color: #a3a3a3;
+  /* Neutral placeholder color */
+  font-style: italic;
+  /* Add a slight stylistic flair */
+}
+
+
+
+form input:hover,
+form select:hover {
+  outline: none;
+  /* Remove default outline */
+  background: rgba(255, 255, 255, 1);
+  /* Fully opaque background on hover */
+  border-color: #78664e;
+  /* Subtle border color change */
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+  /* Enhanced shadow on hover */
+}
+
+
+form a {
+  font-size: 15px;
+}
+
+.lrow {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+}
+
+/* Base styles remain unchanged */
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1024px) {
+  .login-container {
+    width: 35vw;
+    /* Adjust width for medium screens */
+    height: auto;
+    /* Allow height to adjust dynamically */
+    padding: 20px;
+  }
+
+  .lrow {
+    flex-direction: column;
+    /* Stack elements vertically */
+    padding: 0 3vw;
+  }
+
+  .lrow img {
+    width: 50%;
+    /* Scale down image */
+    margin-bottom: 20px;
+    /* Add spacing between image and container */
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 45vw;
+    /* Adjust width for smaller screens */
+    padding: 15px;
+  }
+
+  .lrow img {
+    width: 60%;
+  }
+
+  .loginbtn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    /* Adjust button font size */
+  }
+
+  form input,
+  form select {
+    height: 40px;
+    /* Reduce input height */
+    font-size: 0.9rem;
+    /* Adjust font size */
+  }
+
+  form {
+    gap: 20px;
+    /* Reduce spacing between form elements */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    /* Fit container to screen */
+    padding: 10px;
+    margin: auto;
+  }
+
+  .lrow {
+    padding: 0 2vw;
+  }
+
+  .lrow img {
+    width: 70%;
+  }
+
+  .loginbtn {
+    height: 40px;
+    /* Adjust button height */
+    font-size: 0.85rem;
+  }
+
+  form input,
+  form select {
+    height: 35px;
+    /* Further reduce input height */
+    font-size: 0.85rem;
+    /* Smaller font size for compact screens */
+    padding: 0 15px;
+    /* Adjust padding */
+  }
+
+  form a {
+    font-size: 12px;
+    /* Smaller font size for links */
+  }
+}
+
+/* Adjust font size globally for smaller screens */
+@media (max-width: 320px) {
+  .login-container h2 {
+    font-size: 1.5rem;
+    /* Reduce heading font size */
+  }
+
+  form input,
+  form select {
+    height: 30px;
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
+
+  .loginbtn {
+    font-size: 0.8rem;
+  }
+}
+
+/* ---------------------ORDER HISTORY---------------- */
+.orderHis h1 {
+  text-align: center;
+  margin: 30px 0px;
+}
+
+.orders {
+  background-color: #d3d8d4;
+  width: 80%;
+  margin: auto;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.order {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.orders span {
+  font-weight: bolder;
+}
+
+.orderName span {
+  font-weight: bold;
+}
+
+.order img {
+  border-radius: 50%;
+  height: 80px;
+  margin: auto;
+}
+
+.orderName {
+  list-style-type: none;
+  text-align: left;
+}
+
+.orderInfo {
+  text-align: center;
+}
+
+.empty-Order {
+  background-color: white;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 60px;
+  text-align: center;
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  /* Added for a smoother look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+}
+
+.empty-Order img {
+  height: 200px;
+  margin: 40px 0px;
+  max-width: 100%;
+  /* Ensures image scales properly */
+  object-fit: contain;
+}
+
+.empty-Order a {
+  display: block;
+  background-color: #2c2f44;
+  width: 200px;
+  padding: 13px 0px;
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  margin: auto;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  /* Smooth hover transition */
+}
+
+.empty-Order a:hover {
+  text-decoration: underline;
+  background-color: #414566;
+  /* Slightly lighter for hover effect */
+}
+
+.orders {
+  position: relative;
+}
+
+.orders>button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .empty-Order {
+    width: 80%;
+    padding: 30px;
+  }
+
+  .empty-Order img {
+    height: 150px;
+  }
+
+  .empty-Order a {
+    width: 180px;
+    font-size: 0.9rem;
+  }
+
+  .orders>button {
+    position: relative;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .empty-Order {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .empty-Order img {
+    height: 120px;
+    margin: 20px 0;
+  }
+
+  .empty-Order a {
+    width: 150px;
+    font-size: 0.8rem;
+    padding: 10px 0;
+  }
+}

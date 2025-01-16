@@ -1,0 +1,203 @@
+/* Full-screen overlay */
+.progressOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Ensure the overlay is on top */
+}
+
+/* Modal content style */
+.progressModalContent {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 28vw;
+    max-width: 600px;
+    z-index: 1001;
+}
+
+/* Styling for the button inside modal */
+.progressModalContent button {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.progressModalContent button:hover {
+    opacity: 0.8;
+}
+
+
+.view1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* Stack items vertically */
+    height: 100vh;
+    /* Full viewport height */
+    background-color: #f4f4f4;
+    /* Light background for contrast */
+}
+
+.view2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* width: fit-content; */
+    width: 30vw;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 25vw;
+}
+
+.view3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Space between status labels */
+    padding: 20px;
+    padding-top: 0px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 25vw;
+}
+
+.step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* Fully round nodes */
+    background-color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    /* Optional: Add text inside nodes */
+    color: #fff;
+    /* Optional: Text color for contrast */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.step.active {
+    background-color: green;
+    /* Active step color */
+}
+
+.connector {
+    width: 23%;
+    /* Horizontal connector width */
+    height: 6px;
+    /* Thin horizontal bar */
+    background-color: #f6f6f6;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+}
+
+.connector.active {
+    background-color: green;
+    /* Active step color */
+}
+
+/* Base styles remain unchanged */
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1500px) {
+
+    /* For the overlay modal */
+    .progressModalContent {
+        width: 90%;
+        /* Adjust width to fit within smaller screens */
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    /* Adjust view1 for smaller screens */
+    .view1 {
+        padding: 20px;
+        height: auto;
+        /* Allow content height to adjust */
+        text-align: center;
+        /* Center align text */
+    }
+
+    /* Adjust view2 layout */
+    .view2 {
+        width: 80%;
+        /* Reduce width to fit smaller screens */
+        padding: 15px;
+        margin: 0 auto;
+        /* Center align horizontally */
+    }
+
+    /* Adjust view3 layout */
+    .view3 {
+        width: 80%;
+        /* Reduce width to fit smaller screens */
+        padding: 15px;
+        margin: 0 auto;
+        /* Center align horizontally */
+    }
+
+    /* Step size adjustments */
+    .step {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+        /* Reduce spacing between steps */
+    }
+
+    .connector {
+        width: 26%;
+        /* Reduce connector width */
+        height: 4px;
+        /* Maintain proportional thickness */
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+
+    /* For the overlay modal */
+    .progressModalContent {
+        width: 95%;
+        /* Slightly smaller for very small screens */
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    /* Further adjust view2 and view3 */
+    .view2,
+    .view3 {
+        width: 90%;
+        /* Fit within the screen */
+        padding: 10px;
+        margin: 0 auto;
+        /* Center align horizontally */
+    }
+
+    /* Step and connector adjustments for extra small screens */
+    .step {
+        width: 20px;
+        height: 20px;
+        font-size: 8px;
+        margin: 0 3px;
+        /* Reduce spacing further */
+    }
+
+    .connector {
+        width: 22%;
+        /* Short connectors for smaller screens */
+        height: 3px;
+    }
+}

@@ -1,0 +1,70 @@
+/* Progress Wrapper */
+.chart {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chart h2 {
+    color: rgba(101, 69, 31);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-in-out 1s forwards;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+
+.chart h2 img{
+    height: 50px;
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.chart h4{
+    color: rgba(101, 69, 31);
+    text-align: center;
+}
+
+/* Keyframes for the animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Progress Container */
+.progress-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:0.5s;
+}
+
+/* Progress Inner */
+.progress-inner {
+    width: 170px;
+    height: 170px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(101, 69, 31);
+    font-size: 30px;
+    font-weight: bold;
+}
