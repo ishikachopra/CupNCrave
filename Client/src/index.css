@@ -180,11 +180,15 @@ nav .dropdown-menu.open {
   /* Add any existing styles for dropdown */
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1400px){
   nav .center {
       display: none;
     }
+    .dropdown-icon {
+      display: block;
+    }
 }
+
 
 @media (max-width: 900px) {
   nav .center {
@@ -260,22 +264,17 @@ nav .dropdown-menu.open {
 
 @media (max-width: 344px) {
 
-  /* Adjust logo size */
   .logo img {
     height: 2.5vh;
     margin-left: 10px;
   }
 
-  /* Adjust center navigation links */
   nav .center {
     display: none;
-    /* Hide center links for small screens */
   }
 
-  /* Dropdown menu adjustments */
   nav .dropdown-menu {
     width: 80%;
-    /* Adjust width for smaller screens */
     height: 100%;
     padding: 20px 10px;
   }
@@ -287,18 +286,15 @@ nav .dropdown-menu.open {
 
   nav .dropdown-menu a {
     font-size: 14px;
-    /* Smaller font for links */
   }
 
   nav .dropdown-icon {
     display: block;
-    /* Ensure dropdown icon is visible */
+
   }
 
-  /* Search box adjustments */
   .search-box>input {
     width: 80%;
-    /* Adjust width for smaller screens */
     padding: 6px;
     font-size: small;
     border-radius: 10px;
@@ -319,7 +315,6 @@ nav .dropdown-menu.open {
     padding-bottom: 1px;
   }
 
-  /* Overlay adjustments */
   .overlay {
     opacity: 0.8;
     /* Slightly darker overlay */
@@ -327,8 +322,6 @@ nav .dropdown-menu.open {
 }
 
 @media (max-width: 822px) {
-
-  /* General adjustments for smaller heights */
   nav {
     padding: 8px 0px;
   }
@@ -1758,42 +1751,27 @@ footer {
 
 .loginbtn {
   padding: 10px 20px;
-  /* Adjusted padding for better spacing */
   width: 100%;
   height: 45px;
-  /* Slightly taller for a more modern look */
   font-size: 1rem;
-  /* Keep the font size readable */
   font-weight: bold;
-  /* Make the text more prominent */
   color: #ffffff;
-  /* White text for better contrast */
   background: linear-gradient(135deg, #78664e,#65451F);
-  /* Gradient background for visual interest */
   border: none;
-  /* Remove the default border */
   border-radius: 8px;
-  /* Rounded corners for a smoother look */
   cursor: pointer;
-  /* Change cursor to pointer on hover */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Add a subtle shadow for depth */
   transition:  transform 0.2s ease;
-  /* Smooth transitions */
 }
 
 .loginbtn:hover {
   background: linear-gradient(135deg, #65451F,#78664e);
-  /* Invert gradient on hover */
   transform: translateY(-2px);
-  /* Slight lift on hover */
 }
 
 .loginbtn:active {
   transform: translateY(0);
-  /* Reset lift on click */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  /* Slightly reduced shadow */
 }
 
 .login-container form {
@@ -1830,30 +1808,19 @@ form input,
 form select {
   width: 100%;
   height: 45px;
-  /* Increased height for better usability */
   border: 1px solid #ccc;
-  /* Neutral border color */
   box-sizing: border-box;
   padding: 0 20px;
-  /* Comfortable padding */
   font-size: 1rem;
-  /* Larger font size for readability */
   border-radius: 10px;
-  /* Smoother rounded edges */
-  /* Subtle text color */
   background: rgba(255, 255, 255, 0.9);
-  /* Slightly transparent background */
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-  /* Add a subtle shadow for depth */
   transition: all 0.3s ease;
-  /* Smooth transition for hover effects */
 }
 
 form input::placeholder{
   color: #a3a3a3;
-  /* Neutral placeholder color */
   font-style: italic;
-  /* Add a slight stylistic flair */
 }
 
 input[type="date"] {
@@ -1874,9 +1841,7 @@ form select:focus {
   outline: none;
   /* Remove default outline */
   border-color: #65451F;
-  /* Highlight border on focus */
   box-shadow: 0 0 8px rgba(101, 69, 31, 0.5);
-  /* Glowing effect on focus */
 }
 
 
@@ -1884,11 +1849,8 @@ form select:focus {
 form input:hover,
 form select:hover {
   background: rgba(255, 255, 255, 1);
-  /* Fully opaque background on hover */
   border-color: #78664e;
-  /* Subtle border color change */
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
-  /* Enhanced shadow on hover */
 }
 
 .gender-selection {
@@ -1898,12 +1860,10 @@ form select:hover {
 
 .gender-selection select {
   color: #a3a3a3;
-  /* Default color for placeholder */
 }
 
 .gender-selection select:valid {
   color: black;
-  /* Change color when a valid value is selected */
 }
 
 form a {
@@ -1931,20 +1891,7 @@ form a {
   animation: animateCircle 0.75s;
 }
 
-/* Signup Container Styles */
-.signup-container {
-  background: rgba(255, 255, 255, 0.677);
-  width: 25vw;
-  height: auto;
-  text-align: center;
-  padding: 20px;
-  margin: auto;
-  box-shadow: 5px 5px 15px 2px rgba(122, 122, 122, 0.655);
-  animation: transitionIn 0.75s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+
 
 .signup-container form input,
 .signup-container form select {
@@ -1968,12 +1915,13 @@ form a {
   box-shadow: 0 0 8px rgba(101, 69, 31, 0.5);
 }
 
+
+
 /* Tablet Styles */
 @media (max-width: 1000px) {
   .signup-container {
     width: 60vw;
     height: auto;
-    gap: 20px;
   }
 
   .signup-container h2{
@@ -2035,64 +1983,59 @@ form a {
 }
 
 /* iPad Pro (1024x1366) Styles */
-@media (min-width: 1024px) and (max-width: 1366px) {
+@media (min-width: 800px) and (max-width: 1400px) {
+      .login-page {
+        height: 70vh;
+      }
+  
+      .lcontainer {
+        height: auto;
+      }
+  
+      .srow {
+        height: 80vh;
+      }
+  
+      .lrow {
+        height: 70vh;
+      }
   .login-container {
     width: 45vw;
-    /* Adjust width to fit the screen */
     height: auto;
-    /* Allow height to adjust based on content */
     padding: 40px 60px;
-    /* Adjust padding for better spacing */
     gap: 25px;
-    /* Adjust gap between form elements */
   }
 
   .signup-container {
     width: 45vw;
-    /* Adjust width for signup container */
     height: auto;
-    /* Allow height to adjust based on content */
     padding: 40px 60px;
-    /* Adjust padding for signup form */
     gap: 20px;
-    /* Adjust gap for better spacing */
   }
 
   .lrow img {
-    height: 20vw;
-    /* Adjust image size for the iPad Pro */
-    
+    height: 25vw;
   }
 
   .login-container form input,
   .login-container form select {
     font-size: 1rem;
-    /* Adjust font size for better readability */
     padding: 0 18px;
-    /* Adjust padding inside input fields */
   }
 
   .login-container h2 {
     font-size: 1.5rem;
-    /* Slightly increase font size for headings */
   }
 
   .loginbtn {
     font-size: 1.1rem;
-    /* Adjust button font size */
     height: 50px;
-    /* Slightly increase button height */
   }
 
-  .lrow {
-    padding: 0 10vw;
-    /* Adjust padding for the row */
-  }
 
   .login-container p,
   .login-container a {
     font-size: 14px;
-    /* Adjust font size for text elements */
   }
 }
 
@@ -2112,7 +2055,7 @@ form a {
 
 
 /* ------------------    Add to cart page    ---------------- */
-/* General Styles */
+
 .product-page {
   padding: 5%;
 }
@@ -2664,9 +2607,7 @@ main h1 {
 .profile-info p strong {
   color: #333;
   min-width: 100px;
-  /* Ensures consistent label width */
   margin-right: 10px;
-  /* Reduces gap between strong and input divs */
 }
 
 .type1,
@@ -2678,7 +2619,6 @@ main h1 {
   color: #333;
   font-size: 16px;
   flex: 1;
-  /* Ensures proper alignment and adaptability */
 }
 
 
@@ -2697,13 +2637,9 @@ main h1 {
 
 .type1:not(:disabled) {
   border: 1.5px solid #185da8;
-  /* Example: a solid blue border when enabled */
   background-color: #92bfef3a;
-  /* Normal background */
   color: #000;
-  /* Normal text color */
   cursor: text;
-  /* Normal text cursor */
 }
 
 .profile-buttons{
@@ -2717,53 +2653,36 @@ main h1 {
 
 .profile-buttons button {
   padding: 10px 20px;
-  /* Increase padding for a better look */
   font-size: 1em;
-  /* Slightly larger font size */
   border-radius: 8px;
-  /* Rounder corners */
   border: none;
-  /* Remove default border */
   background-color: #402c13;
-  /* Primary blue background */
   color: #fff;
-  /* White text color */
   cursor: pointer;
-  /* Show pointer on hover */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
   transition: all 0.3s ease;
-  /* Smooth transition for hover effects */
 }
 
 .profile-buttons button:hover {
   background-color: #25190b;
-  /* Darker blue on hover */
   transform: translateY(-2px);
-  /* Slight lift effect */
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-  /* Stronger shadow on hover */
 }
 
 .profile-buttons button:active {
   background-color: #003f7f;
-  /* Even darker blue on click */
   transform: translateY(0);
-  /* Remove lift effect on click */
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-  /* Reduced shadow on click */
 }
 
 @media (max-width: 1400px) {
   .profile-page {
     margin: 10px;
     width: 92%;
-    /* Reduce width to make it look centered */
   }
 
   .profile-sidebar {
     padding: 20px 30px;
-    /* Add more padding for larger screens */
   }
 
   .profile-img img {
@@ -2774,14 +2693,11 @@ main h1 {
   .profile-actions a,
   .profile-actions span {
     font-size: 1.1rem;
-    /* Slightly larger font */
     padding: 15px 20px;
-    /* Larger padding */
   }
 
   .profile-buttons button {
     padding: 12px 25px;
-    /* Larger button padding */
     font-size: 1.2em;
   }
 }
@@ -2792,10 +2708,8 @@ main h1 {
     margin: 0px;
     box-sizing: border-box;
     grid-template-columns: 1fr;
-    /* Stack sidebar and content */
     gap: 10px;
     height: auto;
-    /* Allow height to adjust */
     padding: 5px;
     padding-bottom: 50px;
     width: 100%;
@@ -2803,7 +2717,6 @@ main h1 {
 
   .profile-sidebar {
     align-items: center;
-    /* Center align content */
     padding: 15px;
   }
 
@@ -2819,16 +2732,13 @@ main h1 {
 
   .profile-actions {
     gap: 8px;
-    /* Reduce gap between actions */
     padding: 5px;
   }
 
   .profile-actions a,
   .profile-actions span {
     font-size: 0.9rem;
-    /* Smaller font size */
     padding: 8px 10px;
-    /* Smaller padding */
   }
 
     .profile-heading {
@@ -2898,9 +2808,7 @@ main h1 {
 
   .profile-buttons button {
     font-size: 0.9em;
-    /* Smaller button font size */
     padding: 8px 16px;
-    /* Smaller button padding */
   }
 }
 
@@ -2961,16 +2869,13 @@ main h1 {
   padding: 40px;
   box-sizing: border-box;
   border-radius: 10px;
-  /* Added for a smoother look */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
 }
 
 .empty-Order img {
   height: 200px;
   margin: 40px 0px;
   max-width: 100%;
-  /* Ensures image scales properly */
   object-fit: contain;
 }
 
@@ -2985,13 +2890,11 @@ main h1 {
   margin: auto;
   font-size: 1rem;
   transition: background-color 0.3s ease;
-  /* Smooth hover transition */
 }
 
 .empty-Order a:hover {
   text-decoration: underline;
   background-color: #414566;
-  /* Slightly lighter for hover effect */
 }
 
 .orders{
@@ -3042,7 +2945,9 @@ main h1 {
     padding: 10px 0;
   }
 }
-/* REVIEWS  */
+
+
+/* ------------------- REVIEWS ------------------ */
 
 .reviews-header{
   display: flex;
@@ -3056,27 +2961,19 @@ main h1 {
 .review-grid-container {
   display: grid;
   grid-template-columns: 60px 1fr;
-  /* First column for icon, second for user info */
   grid-template-rows: auto auto;
-  /* Two rows for user and email */
   align-items: center;
   margin-bottom: 8px;
-  /* Space between grid and the message */
 }
 
 .review-icon {
   grid-row: span 2;
-  /* Span across two rows */
   grid-column: 1;
-  /* First column */
   background-color: #591B5F;
     color: white;
     font-weight: 600;
-    /* Equivalent to font-semibold */
     width: 3rem;
-    /* 12 x 0.25rem (Tailwind uses a 4px scale) */
     height: 3rem;
-    /* 12 x 0.25rem */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3085,9 +2982,7 @@ main h1 {
 
 .review-grid-container h4 {
   grid-column: 2;
-  /* Second column */
   grid-row: 1;
-  /* First row */
   margin: 0;
   font-size: 18px;
   color: #333;
@@ -3095,9 +2990,7 @@ main h1 {
 
 .review-grid-container span {
   grid-column: 2;
-  /* Second column */
   grid-row: 2;
-  /* Second row */
   font-size: 14px;
   color: #777;
   margin: 0;
@@ -3112,32 +3005,20 @@ main h1 {
 .reviews-header button {
   height: 50px;
   padding: 10px 30px;
-  /* Increase padding for a better look */
   font-size: 1em;
-  /* Slightly larger font size */
   border-radius: 8px;
-  /* Rounder corners */
   border: none;
-  /* Remove default border */
   background-color: #402c13;
-  /* Primary blue background */
   color: #fff;
-  /* White text color */
   cursor: pointer;
-  /* Show pointer on hover */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
   transition: all 0.3s ease;
-  /* Smooth transition for hover effects */
 }
 
 .reviews-header button:hover {
   background-color: #25190b;
-  /* Darker blue on hover */
   transform: translateY(-2px);
-  /* Slight lift effect */
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-  /* Stronger shadow on hover */
 }
 
 .reviews-container .popup-overlay {
@@ -3250,11 +3131,10 @@ main h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  /* Space between cards */
   /* justify-content: center; */
 }
 
-/* Individual card style */
+
 .review-card {
   background-color: rgb(253, 248, 237);
   border-radius: 10px;
@@ -3288,20 +3168,15 @@ main h1 {
   color: #888;
 }
 
-/* Responsive layout for smaller screens */
+
 @media (max-width: 768px) {
   .review-card {
     width: 45%;
-    /* 2 cards in a row */
   }
 }
 
 @media (max-width: 480px) {
   .review-card {
     width: 100%;
-    /* 1 card in a row */
   }
 }
-
-
-

@@ -1,35 +1,32 @@
-require("dotenv").config();
-const Razorpay = require("razorpay");
+const { log } = require("console");
+const razorpay = require("../config/razorpay");
 const crypto = require("crypto");
+require('dotenv').config();
 
-// Initialize Razorpay instance
-const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
-
-/**
- * Create Razorpay Order
- */
 exports.createOrder = async (req, res) => {
+    const { total } = req.body;
+
+
+    if (!total || total <= 0) {
+        return res.status(400).json({ message: "Invalid order total." });
+    }
+
+    const amountInPaise = total * 100;
+    const currency = "INR";
+
     try {
-        const { total } = req.body;
-
-        if (!total || total <= 0) {
-            return res.status(400).json({ error: "Invalid amount" });
-        }
-
-        const options = {
-            amount: total * 100, // Convert to paise
-            currency: "INR",
+        console.log("1");
+        console.log(razorpay.orders);
+        
+        const order = await razorpay.orders.create({
+            amount: amountInPaise,
+            currency,
             receipt: `receipt_${Date.now()}`,
-        };
+        });
+        console.log("2");
 
-        const order = await razorpay.orders.create(options);
+        console.log(order);
 
-        if (!order) {
-            return res.status(500).json({ error: "Failed to create Razorpay order" });
-        }
 
         res.status(200).json({
             id: order.id,
@@ -38,35 +35,33 @@ exports.createOrder = async (req, res) => {
         });
     } catch (error) {
         console.error("Error creating Razorpay order:", error);
-        res.status(500).json({ error: "Internal Server Error" });
+        res.status(500).json({ message: "Error creating Razorpay order." });
     }
 };
 
-/**
- * Verify Razorpay Payment
- */
+
 exports.verifyPayment = (req, res) => {
+    const { orderId, razorpayPaymentId, razorpayOrderId, razorpaySignature } = req.body;
+
+    if (!orderId || !razorpayPaymentId || !razorpayOrderId || !razorpaySignature) {
+        return res.status(400).json({ message: "Missing required payment details." });
+    }
+
     try {
-        const { orderId, razorpayPaymentId, razorpayOrderId, razorpaySignature } = req.body;
-
-        if (!orderId || !razorpayPaymentId || !razorpayOrderId || !razorpaySignature) {
-            return res.status(400).json({ error: "Missing required payment details" });
-        }
-
         const generatedSignature = crypto
             .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
             .update(`${razorpayOrderId}|${razorpayPaymentId}`)
             .digest("hex");
 
         if (generatedSignature === razorpaySignature) {
-            res.status(200).json({ message: "Payment verified successfully!" });
-
-            // Additional logic (e.g., update order status in DB) can be added here
+            console.log("Payment verified successfully");
+            return res.status(200).json({ message: "Payment verified successfully" });
         } else {
-            res.status(400).json({ error: "Invalid payment signature" });
+            console.error("Payment verification failed: Signature mismatch");
+            return res.status(400).json({ message: "Payment verification failed" });
         }
     } catch (error) {
-        console.error("Error verifying Razorpay payment:", error);
-        res.status(500).json({ error: "Internal Server Error" });
+        console.error("Error during payment verification:", error);
+        res.status(500).json({ message: "Internal Server Error" });
     }
 };

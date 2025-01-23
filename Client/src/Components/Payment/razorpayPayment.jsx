@@ -56,7 +56,7 @@ export const RazorpayPayment = () => {
         try {
             // Generate Razorpay order
             const orderResponse = await axios.post(
-                "http://localhost:3000/CupnCrave/CreateRazorpayOrder",
+                "http://localhost:3000/CupnCrave/payment/CreateRazorpayOrder",
                 { total },
                 { withCredentials: true }
             );
@@ -69,8 +69,8 @@ export const RazorpayPayment = () => {
             const { id: orderId, currency } = orderResponse.data;
 
             const options = {
-                key: process.env.REACT_APP_RAZORPAY_KEY, // Replace with your Razorpay key
-                amount: total * 100, // Amount in paise
+                key: process.env.REACT_APP_RAZORPAY_KEY, 
+                amount: total * 100,
                 currency: currency,
                 name: "Cup N Crave",
                 description: "Order Payment",
@@ -86,7 +86,7 @@ export const RazorpayPayment = () => {
                     try {
                         // Verify payment on the backend
                         const verifyResponse = await axios.post(
-                            "http://localhost:3000/CupnCrave/VerifyRazorpayPayment",
+                            "http://localhost:3000/CupnCrave/payment/VerifyRazorpayPayment",
                             paymentData,
                             { withCredentials: true }
                         );

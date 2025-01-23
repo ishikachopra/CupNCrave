@@ -34,8 +34,9 @@ function SearchMenu() {
     return (
         <>
             <h1 className="cursive"><span className="cursive">~ </span> Menu <span className="cursive">~</span></h1>
-            <section className="coffee" id="coffee">
-                {searchResults.map((item, index) => (
+            {searchResults.length===0?(<h2 style={{ textAlign: 'center' ,marginBottom:'40vh'}}>No Data Found</h2>):
+            <section className="coffee" id="coffee">{
+                (searchResults.map((item, index) => (
                     <div className="CoffeeItems" key={index}>
                         <div className="pic">
                             <img src={item.img} alt={item.name} />
@@ -53,8 +54,10 @@ function SearchMenu() {
                             Add Item
                         </NavLink>
                     </div>
-                ))}
+                    ))
+                )}
             </section>
+            }
         </>
     );
 }
