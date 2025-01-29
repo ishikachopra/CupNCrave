@@ -158,12 +158,12 @@ const sendOtp = async (req,res) => {
             <p>We received a request to reset your password. Please use the OTP below to reset your password:</p>
             <div id="otpCode" class="otp-code">${otp}</div>
             <p>This OTP is valid for the next 15 minutes.</p>
-            <p>If you did not request a password reset, please ignore this email or <a href="mailto:support@yourcompany.com">contact support</a>.</p>
+            <p>If you did not request a password reset, please ignore this email or <a href="mailto:${process.env.EMAIL_USER}">contact support</a>.</p>
         </div>
         <button class="email-button">Copy OTP</button>
         <div class="email-footer">
-            <p>Best regards,<br>Your Company Name</p>
-            <p>If you have any questions, feel free to <a href="mailto:support@yourcompany.com">contact us</a>.</p>
+            <p>Best regards,<br>Cup n Crave</p>
+            <p>If you have any questions, feel free to <a href="mailto:${process.env.EMAIL_USER}">contact us</a>.</p>
         </div>
     </div>
 </body>

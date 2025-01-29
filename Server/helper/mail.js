@@ -7,7 +7,7 @@ exports.sendGreetMail = async (to, name) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL_USER ,  // Use environment variable
+            user: process.env.EMAIL_USER , 
             pass: process.env.EMAIL_PASS
         }
     });
@@ -33,7 +33,7 @@ function body(name) {
     return `
         <div style="font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px; text-align: center;">
             <div style="background-color: #ffffff; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            <img src="http://localhost:3001/CupnCrave/images/finallogo.png" alt="Cup N Crave Logo" style="max-width: 150px; margin-bottom: 20px;">
+            <img src="https://res.cloudinary.com/diz0meysc/finallogo_veuom1" alt="Cup N Crave Logo" style="max-width: 150px; margin-bottom: 20px;">
 
                 <h2 style="color: #333;">Welcome, ${name}!</h2>
                 <p style="color: #555; font-size: 16px; line-height: 1.6;">
