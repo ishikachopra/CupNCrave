@@ -45,9 +45,9 @@ function Popular() {
             <div className="imgbgsp">
                 <h1 className="sphead" data-aos="zoom-in">our menu <span>popular menu</span></h1>
 
-                <div className="popularmenu" data-aos="slide-up">
+                <div className="popularmenu" >
                     {menuItems.map((item, index) => (
-                        <div className="spbox" key={index}>
+                        <div className="spbox" data-aos="slide-up" key={index}>
                             <img src={item.image} alt={item.title} />
                             <div className="offers">
                                 <h3>{item.title}</h3>

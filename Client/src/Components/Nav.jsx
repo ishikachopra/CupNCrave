@@ -110,7 +110,7 @@ function Nav() {
                 </div>
 
                 <div className="right">
-                    <span className="search" onClick={toggleSearch}><i className="fa-solid fa-magnifying-glass"></i></span>
+                    <span className="search" onClick={toggleSearch} ><i className="fa-solid fa-magnifying-glass"></i></span>
                     <NavLink to="/cart">
                         <i className="fa-solid fa-cart-shopping"></i>
                         <sup>{cartLength}</sup>
@@ -121,7 +121,7 @@ function Nav() {
            
             {/* Search Results */}
             {isSearchOpen && (
-                <div className="search-box">
+                <div className="search-box" >
                     <input
                         type="text"
                         placeholder="Search..."
