@@ -1,11 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect ,useState} from "react";
 import Popular from "./popular";
 import Discount from "./discount";
 import { ReactTyped } from 'react-typed';
 import { NavLink } from "react-router-dom";
 import Reviews from "./testimonials";
+import axios from "axios";
 
 function Section1() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
+    useEffect(() => {
+        axios.get("http://localhost:3000/CupnCrave/profile-display", { withCredentials: true })
+            .then(response => {
+                setIsLoggedIn(true);
+            })
+            .catch(error => {
+                console.error("Auth check failed:", error);
+            });
+    }, []);
+    
     useEffect(() => {
         const slides = document.querySelectorAll(".fade");
         let currentSlide = 0;
@@ -25,13 +38,10 @@ function Section1() {
             showSlide(currentSlide);
         }
 
-        // Show the first slide initially
         showSlide(currentSlide);
 
-        // Automatically switch to the next slide every 3 seconds
         const intervalId = setInterval(nextSlide, 3000);
 
-        // Cleanup interval on component unmount
         return () => clearInterval(intervalId);
     }, []);
 
@@ -55,10 +65,12 @@ function Section1() {
                                 <h3>
                                     Welcome to Cup n Crave, where every cup tells a story and every bite is a delight. Nestled in the heart of India, our charming cafe beckons you with the irresistible aroma of freshly brewed coffee and the promise of culinary delights.
                                 </h3>
-                                <div id="loginbuttons">
-                                    <NavLink className="bordered-button" to="/login">Login</NavLink>
-                                    <NavLink className="colored-button" to="/signup">Signup</NavLink>
-                                </div>
+                                {!isLoggedIn && (
+                                    <div id="loginbuttons">
+                                        <NavLink className="bordered-button" to="/login">Login</NavLink>
+                                        <NavLink className="colored-button" to="/signup">Signup</NavLink>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className="slideshow">
