@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate ,NavLink} from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
@@ -56,7 +56,7 @@ function CoffeeAdmin() {
     const checkAuthentication = async () => {
         try {
             // Verify the authentication by calling the backend
-            await axios.get("http://localhost:3000/CupnCrave/admin/coffee", {
+            await axios.get("/admin/coffee", {
                 withCredentials: true, // Include cookies with the request
             });
         } catch (error) {
@@ -67,7 +67,7 @@ function CoffeeAdmin() {
 
     const fetchCoffee = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/CupnCrave/admin/coffee', {
+            const response = await axios.get('/admin/coffee', {
                 withCredentials: true, // Include cookies with the request
             });
             setCoffee(response.data);
@@ -94,7 +94,7 @@ function CoffeeAdmin() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/CupnCrave/admin/coffee/${id}`, {
+            await axios.delete(`/admin/coffee/${id}`, {
                 withCredentials: true,
             });
             setCoffee((prevCoffee) => prevCoffee.filter((item) => item._id !== id));
@@ -106,41 +106,41 @@ function CoffeeAdmin() {
     const handleCreate = async (e) => {
         e.preventDefault();
         const validateName = (name) =>
-                    /^[a-zA-Z\s]+$/.test(name.trim()) &&
-                    name.trim().length > 0 &&
-                    name.trim().length <= 20;
+            /^[a-zA-Z\s]+$/.test(name.trim()) &&
+            name.trim().length > 0 &&
+            name.trim().length <= 20;
 
-                const validatePrice = (number) => {
-                    return number >= 50 && number <= 5000;
-                };
+        const validatePrice = (number) => {
+            return number >= 50 && number <= 5000;
+        };
 
-                const validateDescription=(des)=>{
-                    return des.length>5 && des.length<50;
-                }
+        const validateDescription = (des) => {
+            return des.length > 5 && des.length < 50;
+        }
 
-                const { name, img, description, price } = newCoffee;
+        const { name, img, description, price } = newCoffee;
 
-                if (!name || !img || !description || !price) {
-                    toast.info('All fields are required');
-                    return;
-                }
-                if(!validateName(name)){
-                    toast.info('Name cannot be more than 20 chars');
-                    return;
-                }
-                if(!validatePrice(price)){
-                    toast.info('Price needs to be between Rs.50 and Rs.5000');
-                    return;
-                }
+        if (!name || !img || !description || !price) {
+            toast.info('All fields are required');
+            return;
+        }
+        if (!validateName(name)) {
+            toast.info('Name cannot be more than 20 chars');
+            return;
+        }
+        if (!validatePrice(price)) {
+            toast.info('Price needs to be between Rs.50 and Rs.5000');
+            return;
+        }
 
-                if(!validateDescription(description)){
-                    toast.info('Description should more than 5 chars and less than 50');
-                    return;
-                }
+        if (!validateDescription(description)) {
+            toast.info('Description should more than 5 chars and less than 50');
+            return;
+        }
 
 
         try {
-            const response = await axios.post('http://localhost:3000/CupnCrave/admin/coffee', newCoffee, {
+            const response = await axios.post('/admin/coffee', newCoffee, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -157,7 +157,7 @@ function CoffeeAdmin() {
 
     const markAsInStock = async (id) => {
         try {
-            await axios.patch(`http://localhost:3000/CupnCrave/admin/coffee/${id}/in-stock`, {}, {
+            await axios.patch(`/admin/coffee/${id}/in-stock`, {}, {
                 withCredentials: true,
             });
             toast.success('Coffee marked as In Stock');
@@ -169,7 +169,7 @@ function CoffeeAdmin() {
 
     const markAsOutOfStock = async (id) => {
         try {
-            await axios.patch(`http://localhost:3000/CupnCrave/admin/coffee/${id}/out-of-stock`, {}, {
+            await axios.patch(`/admin/coffee/${id}/out-of-stock`, {}, {
                 withCredentials: true,
             });
             toast.success('Coffee marked as Out of Stock');

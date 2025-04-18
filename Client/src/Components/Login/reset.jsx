@@ -1,6 +1,6 @@
 // ResetPassword.jsx (React component)
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 import { useParams, useNavigate } from 'react-router-dom';
 
 function ResetPassword() {
@@ -13,7 +13,7 @@ function ResetPassword() {
         // Optionally, check if the token is valid when the page loads
         // You could also show a loading spinner here while the token is being validated
         axios
-            .get(`http://localhost:3000/CupnCrave/reset-password/${token}`)
+            .get(`/reset-password/${token}`)
             .then((response) => {
                 setMessage(response.data.message);
             })
@@ -27,7 +27,7 @@ function ResetPassword() {
 
         try {
             const response = await axios.post(
-                `http://localhost:3000/CupnCrave/reset-password/${token}`,
+                `/reset-password/${token}`,
                 { password: newPassword }
             );
             setMessage(response.data.message);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, NavLink ,useNavigate} from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 
 function SearchMenu() {
     const [searchResults, setSearchResults] = useState([]);
@@ -14,7 +14,7 @@ function SearchMenu() {
     useEffect(() => {
         const fetchItems = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/CupnCrave/search`, {
+                const response = await axios.get(`/search`, {
                     params: { q: searchTerm }
                 });
                 setSearchResults(response.data);

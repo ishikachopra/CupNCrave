@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, Route, Routes } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axiosConfig";
 import EditProfile from "./editProfile";
 import CircularProgressChart from "./circularProgress";
 
@@ -15,7 +15,7 @@ function Profile() {
 
     const handleLogout = async () => {
         try {
-            await axios.get("http://localhost:3000/CupnCrave/logout", {
+            await axios.get("/logout", {
                 withCredentials: true, // Ensures cookies are sent
             });
             navigate("/login");
@@ -26,7 +26,7 @@ function Profile() {
 
     const handleUserInfo = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/CupnCrave/profile/user-info", {
+            const response = await axios.get("/profile/user-info", {
                 withCredentials: true,
             });
             setInfo(response.data.user);
@@ -68,7 +68,7 @@ function Profile() {
                     <NavLink to="/profile">
                         <i className="fas fa-star"></i> Your Points
                     </NavLink>
-                    <NavLink to="user-info">  
+                    <NavLink to="user-info">
                         <i className="fa-solid fa-circle-info"></i> User Info
                     </NavLink>
                     <NavLink to="/orders">

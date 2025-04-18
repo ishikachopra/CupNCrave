@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axiosConfig";
 
 function Login() {
     const [formData, setFormData] = useState({});
@@ -25,11 +25,13 @@ function Login() {
             setMessage("All fields are required for login.");
             return;
         }
-
+        console.log("hello");
+        
         try {
-            const response = await axios.post('http://localhost:3000/CupnCrave/login', formData, {
+            const response = await axios.post('/login', formData, {
                 withCredentials: true,
             });
+            console.log("hello2");
             if (response.status === 200) {
                 setMessage("Login successful!");
                 setTimeout(() => {
@@ -54,7 +56,7 @@ function Login() {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/CupnCrave/forgot-password', { email: emailForReset });
+            const response = await axios.post('/forgot-password', { email: emailForReset });
             setMessage(response.data.message);
             setIsResetRequested(true); // Show message that the reset link has been sent
             navigate('/forgot-password',{state:{emailForReset}});

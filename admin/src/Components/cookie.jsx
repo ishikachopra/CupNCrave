@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate,NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from 'axios';
 import './admin.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -51,7 +51,7 @@ function CookieAdmin() {
     const checkAuthentication = async () => {
         try {
             // Verify the authentication by calling the backend
-            await axios.get("http://localhost:3000/CupnCrave/admin/cookie", {
+            await axios.get("/admin/cookie", {
                 withCredentials: true, // Include cookies with the request
             });
 
@@ -65,7 +65,7 @@ function CookieAdmin() {
 
     const fetchCookies = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/CupnCrave/admin/cookie', {
+            const response = await axios.get('/admin/cookie', {
                 withCredentials: true,
             });
             setCookies(response.data);
@@ -94,7 +94,7 @@ function CookieAdmin() {
         try {
             // Verify the authentication by calling the backend
             console.log(id);
-            await axios.delete(`http://localhost:3000/CupnCrave/admin/cookie/${id}`, {
+            await axios.delete(`/admin/cookie/${id}`, {
                 withCredentials: true,
 
             });
@@ -132,11 +132,11 @@ function CookieAdmin() {
             toast.info('Price needs to be between Rs.50 and Rs.5000');
             return;
         }
-        
-                       
+
+
 
         try {
-            const response = await axios.post('http://localhost:3000/CupnCrave/admin/cookie', newCookie, {
+            const response = await axios.post('/admin/cookie', newCookie, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -144,7 +144,7 @@ function CookieAdmin() {
             });
             toast.success('Cookie added successfully');
             setNewCookie({ name: '', img: '', price: 0 });
-            
+
         } catch (error) {
             toast.info('Failed to add cookie.');
         }
@@ -152,7 +152,7 @@ function CookieAdmin() {
 
     const markAsInStock = async (id) => {
         try {
-            const response = await axios.patch(`http://localhost:3000/CupnCrave/admin/cookie/${id}/in-stock`, {}, {
+            const response = await axios.patch(`/admin/cookie/${id}/in-stock`, {}, {
                 withCredentials: true, // Include credentials if authentication is required
             });
             console.log(response.data.message); // Log success message
@@ -165,14 +165,14 @@ function CookieAdmin() {
 
     const markAsOutOfStock = async (id) => {
         try {
-            const response = await axios.patch(`http://localhost:3000/CupnCrave/admin/cookie/${id}/out-of-stock`, {}, {
+            const response = await axios.patch(`/admin/cookie/${id}/out-of-stock`, {}, {
                 withCredentials: true, // Include credentials if authentication is required
             });
             console.log(response.data.message); // Log success message
-          toast.success('Cookie marked as Out of Stock');
+            toast.success('Cookie marked as Out of Stock');
         } catch (error) {
             console.error('Error marking as out of stock:', error);
-           toast.info('Failed to mark as Out of Stock');
+            toast.info('Failed to mark as Out of Stock');
         }
     };
 

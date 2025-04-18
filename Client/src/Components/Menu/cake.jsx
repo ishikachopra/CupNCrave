@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 
 const CakeMenu = () => {
     const [cakes, setCakes] = useState([]);   //initially its an empty array
@@ -11,7 +11,7 @@ const CakeMenu = () => {
 
     const fetchCakes = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/CupnCrave/Menu/cake');
+            const response = await axios.get('/Menu/cake');
             setCakes(response.data);
         } catch (error) {
             console.error('Error fetching cakes:', error);

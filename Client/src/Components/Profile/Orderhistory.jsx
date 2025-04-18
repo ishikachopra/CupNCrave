@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 import { NavLink } from 'react-router-dom';
 import Progress from '../Tracking/progress';
 
@@ -15,7 +15,7 @@ const History = () => {
     // Fetch current status for a specific order
     const fetchStatus = async (orderId) => {
         try {
-            const response = await axios.get(`http://localhost:3000/CupnCrave/orders/status/${orderId}`, {
+            const response = await axios.get(`/orders/status/${orderId}`, {
                 withCredentials: true, // Include cookies if needed
             });
             setStatus(response.data.status);
@@ -26,7 +26,7 @@ const History = () => {
 
     const fetchHistory = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/CupnCrave/orders", {
+            const response = await axios.get("/orders", {
                 withCredentials: true, // Include cookies with the request
             });
             setHistory(response.data);

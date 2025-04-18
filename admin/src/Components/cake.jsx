@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate,NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
@@ -17,10 +17,10 @@ const CakeAdmin = () => {
     });
 
     const handleChange = (e) => {
-            setNewCake({
-                ...newCake,
-                img: e.target.files[0],
-            });
+        setNewCake({
+            ...newCake,
+            img: e.target.files[0],
+        });
     };
 
     const handleOutOfStock = async (id) => {
@@ -41,7 +41,7 @@ const CakeAdmin = () => {
     const checkAuthentication = async () => {
         try {
             // Verify the authentication by calling the backend
-            await axios.get("http://localhost:3000/CupnCrave/admin/cake", {
+            await axios.get("/admin/cake", {
                 withCredentials: true, // Include cookies with the request
             });
 
@@ -56,7 +56,7 @@ const CakeAdmin = () => {
 
     const fetchCakes = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/CupnCrave/admin/cake', {
+            const response = await axios.get('/admin/cake', {
                 withCredentials: true,
             });
             setCakes(response.data);
@@ -84,7 +84,7 @@ const CakeAdmin = () => {
     const handleDelete = async (id) => {
         try {
             // Verify the authentication by calling the backend
-            await axios.delete(`http://localhost:3000/CupnCrave/admin/cake/${id}`, {
+            await axios.delete(`/admin/cake/${id}`, {
                 withCredentials: true, // Include cookies with the request
             });
             // toast.success('Cake deleted successfully');
@@ -122,7 +122,7 @@ const CakeAdmin = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/CupnCrave/admin/cake', newCake, {
+            const response = await axios.post('/admin/cake', newCake, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -141,7 +141,7 @@ const CakeAdmin = () => {
     const markAsInStock = async (id) => {
         try {
             console.log('button Clicked.')
-            const response = await axios.patch(`http://localhost:3000/CupnCrave/admin/cake/${id}/in-stock`, {}, {
+            const response = await axios.patch(`/admin/cake/${id}/in-stock`, {}, {
                 withCredentials: true, // Include credentials if authentication is required
             });
             console.log(response.data.message); // Log success message
@@ -154,7 +154,7 @@ const CakeAdmin = () => {
 
     const markAsOutOfStock = async (id) => {
         try {
-            const response = await axios.patch(`http://localhost:3000/CupnCrave/admin/cake/${id}/out-of-stock`, {}, {
+            const response = await axios.patch(`/admin/cake/${id}/out-of-stock`, {}, {
                 withCredentials: true, // Include credentials if authentication is required
             });
             console.log(response.data.message); // Log success message
@@ -194,11 +194,11 @@ const CakeAdmin = () => {
                             <h2> Rs. {cake.price}</h2>
                             <h4 className={cake.inStock ? "in-stock" : "out-of-stock"}>Status: {cake.inStock ? 'In Stock' : 'Out of Stock'}</h4>
                         </div>
-                     
+
                         {cake.inStock ? (
-                            <button className="add-to-cart"  onClick={() => handleOutOfStock(cake._id)}>Mark as Out of Stock</button>
+                            <button className="add-to-cart" onClick={() => handleOutOfStock(cake._id)}>Mark as Out of Stock</button>
                         ) : (
-                                <button className="add-to-cart"  onClick={() => handleInStock(cake._id)}>Mark as In Stock</button>
+                            <button className="add-to-cart" onClick={() => handleInStock(cake._id)}>Mark as In Stock</button>
                         )}
                     </div>
                 ))}

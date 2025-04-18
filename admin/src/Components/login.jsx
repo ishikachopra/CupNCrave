@@ -28,7 +28,7 @@ function LoginAdmin() {
 
 
         try {
-            const response = await axios.post('http://localhost:3000/CupnCrave/admin/login', formData, {
+            const response = await axios.post('/admin/login', formData, {
                 withCredentials: true,
             });
             if (response.status === 200) {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axiosConfig";
 
 function ProfileDisplay() {
     const [isLoading, setIsLoading] = useState(true); // Loading state
@@ -10,7 +10,7 @@ function ProfileDisplay() {
         const checkAuthentication = async () => {
             try {
                 // Verify the authentication by calling the backend
-                const response = await axios.get("http://localhost:3000/CupnCrave/profile-display", {
+                const response = await axios.get("/profile-display", {
                     withCredentials: true, // Include cookies with the request
                 });
 

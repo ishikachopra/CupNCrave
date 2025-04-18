@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axiosConfig";
 import 'react-toastify/dist/ReactToastify.css';
 import "../toastStyles.css"
 import { toast, ToastContainer } from 'react-toastify';
-import './forgotpassword.css'; // Import the custom CSS
+import './forgotpassword.css'; 
 
 const ForgotPassword = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -25,7 +25,7 @@ const ForgotPassword = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3000/CupnCrave/verify",
+        "/verify",
         {
           email,
           newPassword,

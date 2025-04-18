@@ -1,16 +1,16 @@
-import React, { useEffect ,useState} from "react";
+import React, { useEffect, useState } from "react";
 import Popular from "./popular";
 import Discount from "./discount";
 import { ReactTyped } from 'react-typed';
 import { NavLink } from "react-router-dom";
 import Reviews from "./testimonials";
-import axios from "axios";
+import axios from "../../axiosConfig";
 
 function Section1() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    
+
     useEffect(() => {
-        axios.get("http://localhost:3000/CupnCrave/profile-display", { withCredentials: true })
+        axios.get("/profile-display", { withCredentials: true })
             .then(response => {
                 setIsLoggedIn(true);
             })
@@ -18,7 +18,7 @@ function Section1() {
                 console.error("Auth check failed:", error);
             });
     }, []);
-    
+
     useEffect(() => {
         const slides = document.querySelectorAll(".fade");
         let currentSlide = 0;

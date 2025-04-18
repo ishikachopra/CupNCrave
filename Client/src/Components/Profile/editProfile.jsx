@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../../axiosConfig";
 
-function EditProfile(){
+function EditProfile() {
     const [info, setInfo] = useState({}); // Store user info
     const [isEditing, setIsEditing] = useState(false); // State to track editing mode
 
@@ -11,7 +11,7 @@ function EditProfile(){
 
     const handleUserInfo = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/CupnCrave/profile/user-info", {
+            const response = await axios.get("/profile/user-info", {
                 withCredentials: true,
             });
             setInfo(response.data.user);
@@ -31,7 +31,7 @@ function EditProfile(){
 
     const handleSave = async () => {
         try {
-            await axios.put("http://localhost:3000/CupnCrave/profile/user-info", info, {
+            await axios.put("/profile/user-info", info, {
                 withCredentials: true,
             });
             setIsEditing(false); // Exit editing mode
@@ -40,7 +40,7 @@ function EditProfile(){
         }
     };
 
-    return(
+    return (
         <div className="profile-info">
             <div className="profile-heading">
                 <img src="../images/profile-info.png" alt="profile-icon" />
@@ -111,7 +111,7 @@ function EditProfile(){
                         className="type1"
                     />
                 </p>
-                
+
             </div>
 
             {/* Edit and Save Buttons */}
@@ -119,12 +119,12 @@ function EditProfile(){
                 {isEditing ? (<>
                     <button onClick={toggleEdit} >Cancel</button>
                     <button onClick={handleSave} className="saveEdit">Save</button>
-                    </>
+                </>
                 ) : (
                     <button onClick={toggleEdit}>Update Profile</button>
                 )}
             </div>
-            
+
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axiosConfig";
 
 function Signup() {
     const [formData, setFormData] = useState({});
@@ -94,7 +94,7 @@ function Signup() {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/CupnCrave/signup', formData);
+            const response = await axios.post('/signup', formData);
             console.log(formData);
             if (response.status === 201) {
                 setMessage("Registration successful! Please login.");

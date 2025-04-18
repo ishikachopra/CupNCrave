@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 import 'react-toastify/dist/ReactToastify.css';
 import "../toastStyles.css"
 import { toast, ToastContainer } from 'react-toastify';
@@ -18,7 +18,7 @@ const CustomerReviews = ({ productId }) => {
     const fetchReviews = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`http://localhost:3000/CupnCrave/reviews/${productId}`);
+            const response = await axios.get(`/reviews/${productId}`);
             setReviews(response.data);
         } catch (err) {
             setError('Failed to fetch reviews. Please try again.');
@@ -52,7 +52,7 @@ const CustomerReviews = ({ productId }) => {
             return; // Prevent form submission if validation fails
         }
         try {
-            await axios.post('http://localhost:3000/CupnCrave/reviews', {
+            await axios.post('/reviews', {
                 ...formData,
                 productId,
             });

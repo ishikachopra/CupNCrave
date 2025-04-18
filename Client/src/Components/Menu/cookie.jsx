@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 
 function Cookie() {
     const [cookies, setCookies] = useState([]);
@@ -11,7 +11,7 @@ function Cookie() {
 
     const fetchCookies = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/CupnCrave/Menu/cookie');
+            const response = await axios.get('/Menu/cookie');
             setCookies(response.data);
         } catch (error) {
             console.error('Error fetching cakes:', error);

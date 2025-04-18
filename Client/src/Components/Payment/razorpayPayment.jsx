@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../toastStyles.css";
-import axios from "axios";
+import axios from "../../axiosConfig";
 
 export const RazorpayPayment = () => {
     const navigate = useNavigate();
@@ -56,7 +56,7 @@ export const RazorpayPayment = () => {
         try {
             // Generate Razorpay order
             const orderResponse = await axios.post(
-                "http://localhost:3000/CupnCrave/payment/CreateRazorpayOrder",
+                "/payment/CreateRazorpayOrder",
                 { total },
                 { withCredentials: true }
             );
@@ -86,7 +86,7 @@ export const RazorpayPayment = () => {
                     try {
                         // Verify payment on the backend
                         const verifyResponse = await axios.post(
-                            "http://localhost:3000/CupnCrave/payment/VerifyRazorpayPayment",
+                            "/payment/VerifyRazorpayPayment",
                             paymentData,
                             { withCredentials: true }
                         );

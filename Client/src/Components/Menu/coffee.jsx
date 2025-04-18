@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../axiosConfig';
 
 function Coffee() {
     const [coffee, setCoffee] = useState([]);
@@ -11,7 +11,7 @@ function Coffee() {
 
     const fetchCoffee = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/CupnCrave/Menu/coffee');
+            const response = await axios.get('/Menu/coffee');
             setCoffee(response.data);
         } catch (error) {
             console.error('Error fetching cakes:', error);

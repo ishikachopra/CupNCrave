@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../toastStyles.css';
-import axios from "axios";
+import axios from '../../axiosConfig';
 
 export const CashOnDeliveryForm = () => {
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ export const CashOnDeliveryForm = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:3000/CupnCrave/Checkout",
+                "/Checkout",
                 { cartItems, total },
                 { withCredentials: true }
             );
