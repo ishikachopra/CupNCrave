@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import axios from 'axios';
+import axios from '../axiosConfig';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
 import "../toastStyles.css";
@@ -56,7 +56,7 @@ function CoffeeAdmin() {
     const checkAuthentication = async () => {
         try {
             // Verify the authentication by calling the backend
-            await axios.get("/admin/coffee", {
+            await axios.get("/coffee", {
                 withCredentials: true, // Include cookies with the request
             });
         } catch (error) {
@@ -67,7 +67,7 @@ function CoffeeAdmin() {
 
     const fetchCoffee = async () => {
         try {
-            const response = await axios.get('/admin/coffee', {
+            const response = await axios.get('/coffee', {
                 withCredentials: true, // Include cookies with the request
             });
             setCoffee(response.data);
@@ -94,7 +94,7 @@ function CoffeeAdmin() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`/admin/coffee/${id}`, {
+            await axios.delete(`/coffee/${id}`, {
                 withCredentials: true,
             });
             setCoffee((prevCoffee) => prevCoffee.filter((item) => item._id !== id));
@@ -140,7 +140,7 @@ function CoffeeAdmin() {
 
 
         try {
-            const response = await axios.post('/admin/coffee', newCoffee, {
+            const response = await axios.post('/coffee', newCoffee, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -157,7 +157,7 @@ function CoffeeAdmin() {
 
     const markAsInStock = async (id) => {
         try {
-            await axios.patch(`/admin/coffee/${id}/in-stock`, {}, {
+            await axios.patch(`/coffee/${id}/in-stock`, {}, {
                 withCredentials: true,
             });
             toast.success('Coffee marked as In Stock');
@@ -169,7 +169,7 @@ function CoffeeAdmin() {
 
     const markAsOutOfStock = async (id) => {
         try {
-            await axios.patch(`/admin/coffee/${id}/out-of-stock`, {}, {
+            await axios.patch(`/coffee/${id}/out-of-stock`, {}, {
                 withCredentials: true,
             });
             toast.success('Coffee marked as Out of Stock');

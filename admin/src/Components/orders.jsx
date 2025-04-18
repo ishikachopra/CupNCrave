@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../axiosConfig';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Progress from './Tracking/progress';
 
@@ -18,7 +18,7 @@ const Orders = () => {
     const checkAuthentication = async () => {
         try {
             // Verify the authentication by calling the backend
-            await axios.get("/admin/orders/allOrders", {
+            await axios.get("/orders/allOrders", {
                 withCredentials: true, // Include cookies with the request
             });
         } catch (error) {
@@ -30,7 +30,7 @@ const Orders = () => {
     // Fetch current status for a specific order
     const fetchStatus = async (orderId) => {
         try {
-            const response = await axios.get(`/admin/orders/status/${orderId}`, {
+            const response = await axios.get(`/orders/status/${orderId}`, {
                 withCredentials: true,
             });
             setStatus(response.data.status);
@@ -41,7 +41,7 @@ const Orders = () => {
 
     const fetchHistory = async () => {
         try {
-            const response = await axios.get("/admin/orders/allOrders", {
+            const response = await axios.get("/orders/allOrders", {
                 withCredentials: true,
             });
             setHistory(response.data);
@@ -62,7 +62,7 @@ const Orders = () => {
 
     const incrementOrderStatus = async () => {
         try {
-            const response = await axios.put(`/admin/orders/status/${selectedOrderId}`, {}, {
+            const response = await axios.put(`/orders/status/${selectedOrderId}`, {}, {
                 withCredentials: true, // Correct placement for the credentials option
             });
             setStatus(response.data.order.status); // Update the local state

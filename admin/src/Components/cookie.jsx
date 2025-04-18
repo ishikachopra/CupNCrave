@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import axios from 'axios';
+import axios from '../axiosConfig';
 import './admin.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
@@ -51,7 +51,7 @@ function CookieAdmin() {
     const checkAuthentication = async () => {
         try {
             // Verify the authentication by calling the backend
-            await axios.get("/admin/cookie", {
+            await axios.get("/cookie", {
                 withCredentials: true, // Include cookies with the request
             });
 
@@ -65,7 +65,7 @@ function CookieAdmin() {
 
     const fetchCookies = async () => {
         try {
-            const response = await axios.get('/admin/cookie', {
+            const response = await axios.get('/cookie', {
                 withCredentials: true,
             });
             setCookies(response.data);
@@ -94,7 +94,7 @@ function CookieAdmin() {
         try {
             // Verify the authentication by calling the backend
             console.log(id);
-            await axios.delete(`/admin/cookie/${id}`, {
+            await axios.delete(`/cookie/${id}`, {
                 withCredentials: true,
 
             });
@@ -136,7 +136,7 @@ function CookieAdmin() {
 
 
         try {
-            const response = await axios.post('/admin/cookie', newCookie, {
+            const response = await axios.post('/cookie', newCookie, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -152,7 +152,7 @@ function CookieAdmin() {
 
     const markAsInStock = async (id) => {
         try {
-            const response = await axios.patch(`/admin/cookie/${id}/in-stock`, {}, {
+            const response = await axios.patch(`/cookie/${id}/in-stock`, {}, {
                 withCredentials: true, // Include credentials if authentication is required
             });
             console.log(response.data.message); // Log success message
@@ -165,7 +165,7 @@ function CookieAdmin() {
 
     const markAsOutOfStock = async (id) => {
         try {
-            const response = await axios.patch(`/admin/cookie/${id}/out-of-stock`, {}, {
+            const response = await axios.patch(`/cookie/${id}/out-of-stock`, {}, {
                 withCredentials: true, // Include credentials if authentication is required
             });
             console.log(response.data.message); // Log success message

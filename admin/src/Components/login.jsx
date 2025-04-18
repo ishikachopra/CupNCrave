@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../axiosConfig";
 import "./admin.css";
 
 function LoginAdmin() {
@@ -28,7 +28,7 @@ function LoginAdmin() {
 
 
         try {
-            const response = await axios.post('/admin/login', formData, {
+            const response = await axios.post('/login', formData, {
                 withCredentials: true,
             });
             if (response.status === 200) {

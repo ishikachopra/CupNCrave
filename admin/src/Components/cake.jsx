@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import axios from 'axios';
+import axios from '../axiosConfig';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
 import "../toastStyles.css"
@@ -41,7 +41,7 @@ const CakeAdmin = () => {
     const checkAuthentication = async () => {
         try {
             // Verify the authentication by calling the backend
-            await axios.get("/admin/cake", {
+            await axios.get("/cake", {
                 withCredentials: true, // Include cookies with the request
             });
 
@@ -56,7 +56,7 @@ const CakeAdmin = () => {
 
     const fetchCakes = async () => {
         try {
-            const response = await axios.get('/admin/cake', {
+            const response = await axios.get('/cake', {
                 withCredentials: true,
             });
             setCakes(response.data);
@@ -84,7 +84,7 @@ const CakeAdmin = () => {
     const handleDelete = async (id) => {
         try {
             // Verify the authentication by calling the backend
-            await axios.delete(`/admin/cake/${id}`, {
+            await axios.delete(`/cake/${id}`, {
                 withCredentials: true, // Include cookies with the request
             });
             // toast.success('Cake deleted successfully');
@@ -122,7 +122,7 @@ const CakeAdmin = () => {
         }
 
         try {
-            const response = await axios.post('/admin/cake', newCake, {
+            const response = await axios.post('/cake', newCake, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -141,7 +141,7 @@ const CakeAdmin = () => {
     const markAsInStock = async (id) => {
         try {
             console.log('button Clicked.')
-            const response = await axios.patch(`/admin/cake/${id}/in-stock`, {}, {
+            const response = await axios.patch(`/cake/${id}/in-stock`, {}, {
                 withCredentials: true, // Include credentials if authentication is required
             });
             console.log(response.data.message); // Log success message
@@ -154,7 +154,7 @@ const CakeAdmin = () => {
 
     const markAsOutOfStock = async (id) => {
         try {
-            const response = await axios.patch(`/admin/cake/${id}/out-of-stock`, {}, {
+            const response = await axios.patch(`/cake/${id}/out-of-stock`, {}, {
                 withCredentials: true, // Include credentials if authentication is required
             });
             console.log(response.data.message); // Log success message
