@@ -1,4 +1,11 @@
 {
+    "redirects": [
+        {
+            "source": "/",
+            "destination": "/CupnCrave",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/CupnCrave/:path*",
