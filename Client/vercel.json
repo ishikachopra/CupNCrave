@@ -2,7 +2,7 @@
     "rewrites": [
         {
             "source": "/CupnCrave/:path*",
-            "destination": "/CupnCrave/index.html"
+            "destination": "/:path*"
         }
     ]
 }
