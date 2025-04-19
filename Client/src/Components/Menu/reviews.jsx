@@ -58,7 +58,7 @@ const CustomerReviews = ({ productId }) => {
             });
             toast.success('Review added successfully!');
             setShowPopup(false); // Close popup after submission
-            // fetchReviews();
+            fetchReviews();
         } catch (err) {
             console.log(err);
             toast.info('Failed to submit review.');
