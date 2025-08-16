@@ -65,6 +65,7 @@ async function handleUserLogin(req, res) {
         res.cookie('uid', token, {
             httpOnly: true,    //so javascript doesnt access our cookie and steal senitive info from browser
             secure: true,
+            sameSite: "none",
             path: '/',
         });
 
